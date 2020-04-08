@@ -1,7 +1,10 @@
 node{
   echo "first project created tested"
 
-
-
-
+  stage("并行执行stage"){
+    parallel {
+      build job:"test_parallel_system", parameter:[]
+      build job:"test_parallel_system2", parameter:[]
+    }
+  }
 }
