@@ -3,8 +3,12 @@ node{
 
   stage("parallel execute stage"){
     parallel {
-      build job:"test_parallel_system", parameter:[]
-      build job:"test_parallel_system2", parameter:[]
+      stage("branchA"){
+        build job:"test_parallel_system", parameter:[]
+      }
+      stage("branchB"){
+        build job:"test_parallel_system2", parameter:[]        
+      }
     }
   }
 }
